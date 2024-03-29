@@ -11,6 +11,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  plugin_platform_interface: ^2.1.8
 
 dev_dependencies:
   flutter_test:
@@ -26,4 +27,8 @@ flutter:
         package: com.stark.flutter_kronos
         pluginClass: FlutterKronosPlugin
       ios:
-        pluginClass: FlutterKronosPlugin
+        pluginClass: SwiftFlutterKronosPlugin
+        sharedDarwinSource: true
+      macos:
+        pluginClass: SwiftFlutterKronosPlugin
+        sharedDarwinSource: true

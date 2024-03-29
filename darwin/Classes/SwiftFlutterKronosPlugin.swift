@@ -1,10 +1,20 @@
-import Flutter
-import UIKit
+#if os(OSX)
+  import Cocoa
+  import FlutterMacOS
+#else
+  import Flutter
+  import UIKit
+#endif
 import Kronos
 
 public class SwiftFlutterKronosPlugin: NSObject, FlutterPlugin {
   public static func register(with registrar: FlutterPluginRegistrar) {
-    let channel = FlutterMethodChannel(name: "flutter_kronos", binaryMessenger: registrar.messenger())
+    #if os(OSX)
+      let messenger = registrar.messenger
+    #else
+      let messenger = registrar.messenger()
+    #endif
+    let channel = FlutterMethodChannel(name: "flutter_kronos", binaryMessenger: messenger)
     let instance = SwiftFlutterKronosPlugin()
     registrar.addMethodCallDelegate(instance, channel: channel)
   }
