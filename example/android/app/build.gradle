@@ -39,7 +39,7 @@ android {
 
     defaultConfig {
         applicationId "com.stark.flutter_kronos_example"
-        minSdkVersion 16
+        minSdkVersion flutter.minSdkVersion
         targetSdkVersion 30
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
